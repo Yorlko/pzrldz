@@ -96,9 +96,9 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
 {
     if(pos > _size) 
     {
-		throw std::out_of_range("pos > _size");
-		return;
-	}
+	throw std::out_of_range("pos > _size");
+	return;
+    }
     _size += size;
     if (_size > _capacity) 
     {
@@ -120,12 +120,12 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
     }
     for(size_t i = _size - 1; i > pos; i--) 
     {
-		_data[i] = std::move(_data[i - size]);
-	}
+        _data[i] = std::move(_data[i - size]);
+    }
 	for(size_t i = 0; i < size; i++) 
     {
 		_data[pos + i] = values[i];
-	}
+    }
 }
 
 void Vector::insert(const Vector& vector, size_t pos) 
