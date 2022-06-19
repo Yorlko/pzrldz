@@ -125,6 +125,7 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
     for(size_t i = 0; i < size; i++) 
     {
         _data[pos + i] = values[i];
+
     }
 }
 
