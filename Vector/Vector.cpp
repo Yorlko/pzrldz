@@ -303,4 +303,4 @@ Vector::Iterator   Vector::end()
 {
     Vector::Iterator tail(_data + _size);
     return tail;
-}
+} 
