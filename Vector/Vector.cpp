@@ -84,7 +84,7 @@ void Vector::pushBack(const Value& value)
     
 void Vector::pushFront(const Value& value) 
 {
-     insert(value, 0);   
+    insert(value, 0);   
 }
 
 void Vector::insert(const Value& value, size_t pos) 
@@ -96,15 +96,15 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
 {
     if(pos > _size) 
     {
-    throw std::out_of_range("pos > _size");
-    return;
+	    throw std::out_of_range("pos > _size");
+	    return;
     }
     _size += size;
     if (_size > _capacity) 
     {
         if (_capacity == 0) 
         {
-        _capacity = 1*_multiplicativeCoef;
+            _capacity = 1*_multiplicativeCoef;
         }
         while (_size > _capacity) 
         {
@@ -125,7 +125,6 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
     for(size_t i = 0; i < size; i++) 
     {
         _data[pos + i] = values[i];
-
     }
 }
 
@@ -191,7 +190,7 @@ size_t Vector::capacity() const
 
  double Vector::loadFactor() const
  {
-     return (double)_size/_capacity;
+     return static_cast<double>(_size)/_capacity;
  }
 
 Value& Vector::operator[](size_t idx) 
