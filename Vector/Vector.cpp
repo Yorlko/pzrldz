@@ -96,8 +96,8 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
 {
     if(pos > _size) 
     {
-	    throw std::out_of_range("pos > _size");
-	    return;
+	throw std::out_of_range("pos > _size");
+	return;
     }
     _size += size;
     if (_size > _capacity) 
