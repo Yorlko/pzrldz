@@ -18,7 +18,7 @@ Vector::Vector(const Vector& other)
     size_t _size = other._size;
     size_t _capacity = other._size;
     _data = new Value[other._size];
-	float  _multiplicativeCoef = other._multiplicativeCoef;
+    float  _multiplicativeCoef = other._multiplicativeCoef;
     
     for(size_t i = 0; i < other._size; i++) 
     {
@@ -74,14 +74,14 @@ Vector& Vector::operator=(Vector&& other) noexcept
 
 Vector::~Vector() 
 {
-	delete[] _data;
+    delete[] _data;
 }
 
 void Vector::pushBack(const Value& value) 
 {
     insert(value, _size);
 }
-	
+    
 void Vector::pushFront(const Value& value) 
 {
      insert(value, 0);   
@@ -96,9 +96,9 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
 {
     if(pos > _size) 
     {
-		throw std::out_of_range("pos > _size");
-		return;
-	}
+    throw std::out_of_range("pos > _size");
+    return;
+    }
     _size += size;
     if (_size > _capacity) 
     {
@@ -120,12 +120,12 @@ void Vector::insert(const Value* values, size_t size, size_t pos)
     }
     for(size_t i = _size - 1; i > pos; i--) 
     {
-		_data[i] = std::move(_data[i - size]);
-	}
-	for(size_t i = 0; i < size; i++) 
+        _data[i] = std::move(_data[i - size]);
+    }
+    for(size_t i = 0; i < size; i++) 
     {
-		_data[pos + i] = values[i];
-	}
+        _data[pos + i] = values[i];
+    }
 }
 
 void Vector::insert(const Vector& vector, size_t pos) 
@@ -137,12 +137,12 @@ void Vector::popBack()
 {
     if(_size > 0) 
     {
-		_size--;
-	}
-	else 
+        _size--;
+    }
+    else 
     {
-		throw std::out_of_range("size = 0");
-	}
+        throw std::out_of_range("size = 0");
+    }
 }
 
 void Vector::popFront()
@@ -154,27 +154,27 @@ void Vector::erase(size_t pos, size_t count)
 {
     if(pos >= _size) 
     {
-		throw std::out_of_range("pos >= _size");
-		return;
-	}
-	if(pos + count > _size) 
+        throw std::out_of_range("pos >= _size");
+        return;
+    }
+    if(pos + count > _size) 
     {
-		count = _size - pos;
-	}
-	_size -= count;
-	for(size_t i = pos; i < _size; i++) 
+        count = _size - pos;
+    }
+    _size -= count;
+    for(size_t i = pos; i < _size; i++) 
     {
-		_data[i] = std::move(_data[i + count]);
-	}
+        _data[i] = std::move(_data[i + count]);
+    }
 }
 
 void Vector::eraseBetween(size_t beginPos, size_t endPos)
 {
     if(beginPos >= endPos) 
     {
-		throw std::out_of_range("beginPos >= endPos");
-		return;
-	}
+        throw std::out_of_range("beginPos >= endPos");
+        return;
+    }
     erase(beginPos, endPos - beginPos);
 }
 
@@ -207,12 +207,12 @@ long long Vector::find(const Value& value) const
 {
     for (size_t i = 0; i < _size; i++) 
     {
-		if (_data[i] == value)
+        if (_data[i] == value)
         {
-	        return i;
-	    }
-	}
-	return -1;
+            return i;
+        }
+    }
+    return -1;
 }
 
 void Vector::reserve(size_t capacity) 
