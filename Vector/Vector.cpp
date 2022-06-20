@@ -188,10 +188,10 @@ size_t Vector::capacity() const
     return _capacity;
 }
 
- double Vector::loadFactor() const
- {
-     return static_cast<double>(_size)/_capacity;
- }
+double Vector::loadFactor() const
+{
+    return static_cast<double>(_size)/_capacity;
+}
 
 Value& Vector::operator[](size_t idx) 
 {
